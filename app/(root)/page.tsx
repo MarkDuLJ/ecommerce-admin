@@ -7,7 +7,6 @@ import { useEffect } from 'react'
 
 export default function SetupPage() {
   const {onOpen, isOpen} = useStoreModal()
-  console.log(isOpen);
 
   useEffect(()=>{
     if(!isOpen) onOpen()
