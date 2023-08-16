@@ -12,6 +12,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { POST } from "@/app/api/stores/route";
+import { toast } from "react-hot-toast";
 
 const formSchema = z.object({
     name:z.string().min(1),
@@ -31,11 +32,11 @@ export const StoreModal = () =>{
     const onSubmit =async (values:z.infer<typeof formSchema>) => {
         try {
             setLoading(true)
-            const res = await axios.post('/api/stores', values)
+            const res = await axios.post('/api/store', values)
             console.log(res);
             
         } catch (error) {
-            console.log(error);
+            toast.error("submit went wrong...")
             
         } finally {
             setLoading(false)
