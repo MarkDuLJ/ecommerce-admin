@@ -34,6 +34,10 @@ export const StoreModal = () =>{
             setLoading(true)
             const res = await axios.post('/api/stores', values)
             toast.success(`store: ${values.name} created`)
+
+            // it's not a good way to redirect to this url, but route make things wrong sometime
+            // window.location.assign refresh the whole page after data stored into database
+            window.location.assign(`/${res.data.id}`)
             
         } catch (error) {
             toast.error("submit went wrong...")
