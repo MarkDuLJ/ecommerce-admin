@@ -22,8 +22,8 @@ import {
 } from "@/components/ui/form"
 import { Separator } from "@/components/ui/separator"
 import { Heading } from "@/components/ui/heading"
-import { AlertModal } from "@/components/modals/alert-modal"
-import { ApiAlert } from "@/components/ui/api-alert"
+import { AlertModal } from "@/components/shared/alert-modal"
+import { ApiAlert } from "@/components/shared/api-alert"
 import { useOrigin } from "@/hooks/use-origin"
 
 const formSchema = z.object({
@@ -58,7 +58,7 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
       router.refresh();
       toast.success('Store updated.');
     } catch (error: any) {
-      toast.error('Something went wrong.');
+      toast.error('Submiiting went wrong.');
     } finally {
       setLoading(false);
     }
