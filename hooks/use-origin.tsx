@@ -1,3 +1,4 @@
+//  origin already exists, use hook to avoid potential hydration error
 import { useEffect, useState } from "react";
 
 export const useOrigin = () => {
