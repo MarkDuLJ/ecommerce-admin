@@ -22,7 +22,8 @@ export default function RootLayout({
       <html lang="en">
         <body className={inter.className}>
           <ToastProvider />
-          {/* <ModalProvider /> */}
+          {/* have to add modal provider because we will need it in navbar */}
+          <ModalProvider />
           {children}
         </body>
       </html>
