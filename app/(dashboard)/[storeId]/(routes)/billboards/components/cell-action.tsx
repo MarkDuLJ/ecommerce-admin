@@ -6,6 +6,7 @@ import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
 import { Button } from "@/components/ui/button"
 import { Copy, Edit, MoreHorizontal, Trash2 } from "lucide-react"
 import { toast } from "react-hot-toast"
+import { useParams, useRouter } from "next/navigation"
 
 interface Props{
     data:BillboardColumn
@@ -13,6 +14,8 @@ interface Props{
 
 
 export const CellAction:React.FC<Props> =({data})=>{
+    const router = useRouter()
+    const params = useParams()
     
     const onCopy = (id:string)=>{
         navigator.clipboard.writeText(id)
@@ -32,7 +35,7 @@ export const CellAction:React.FC<Props> =({data})=>{
                     <Copy className="mr-2 h-4 w-4"/>
                     Copy Id
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem onClick={()=>router.push(`/${params.storeId}/billboards/${data.id}`)}>
                     <Edit className="mr-2 h-4 w-4"/>
                     Update
                 </DropdownMenuItem>

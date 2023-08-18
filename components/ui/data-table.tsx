@@ -45,8 +45,6 @@ export function DataTable<TData, TValue>({
       columnFilters,
     }
   });
-
-  console.log(table);
   
 
   return (
