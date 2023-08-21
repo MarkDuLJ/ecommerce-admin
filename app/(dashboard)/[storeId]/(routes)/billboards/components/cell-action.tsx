@@ -53,7 +53,7 @@ export const CellAction:React.FC<Props> =({data})=>{
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-                <DropdownMenuLabel>actions</DropdownMenuLabel>
+                <DropdownMenuLabel>Actions</DropdownMenuLabel>
                 <DropdownMenuItem onClick={()=>onCopy(data.id)}>
                     <Copy className="mr-2 h-4 w-4"/>
                     Copy Id

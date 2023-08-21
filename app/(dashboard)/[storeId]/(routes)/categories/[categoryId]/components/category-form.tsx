@@ -92,7 +92,7 @@ export const CategoryForm:React.FC<CategoryFormProps> =({initialData,billboards}
     return (
         <>
         <AlertModal isOpen={open} onClose={()=>setOpen(false)} onConfirm={onDelete} loading={loading} />
-        <div >
+        <div className="flex items-center justify-between">
             <Heading title={title} description={description}/>
             {initialData && (
                 <Button disabled={loading} variant="destructive" size="sm" onClick={()=>setOpen(true)}>

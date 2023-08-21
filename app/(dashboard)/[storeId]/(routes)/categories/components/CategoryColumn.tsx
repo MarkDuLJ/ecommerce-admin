@@ -1,4 +1,5 @@
 import { ColumnDef } from "@tanstack/react-table";
+import { CellAction } from "./cell-action";
 
 export type CategoryColumn = {
     id: string;
@@ -21,6 +22,10 @@ export type CategoryColumn = {
       accessorKey: "createdAt",
       header: "Date",
       
+    },
+    {
+      accessorKey: "actions",
+      cell: ({row})=><CellAction data={row.original} />
     },
   ];
   
