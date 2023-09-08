@@ -1,6 +1,8 @@
+import { getChartRevenue } from "@/actions/get-chart-data"
 import { getTotalSale } from "@/actions/get-sale-count"
 import { getStock } from "@/actions/get-stock"
 import { getTotalRevenue } from "@/actions/get-total-revenue"
+import { Overview } from "@/components/overview-chart"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Heading } from "@/components/ui/heading"
 import { Separator } from "@/components/ui/separator"
@@ -16,6 +18,8 @@ const DashBooardPage:React.FC<Props> = async ( {params}:Props)=>{
     const totalRevenue = await getTotalRevenue(params.storeId)
     const stock = await getStock(params.storeId)
     const totalSales = await getTotalSale(params.storeId)
+
+    const chartData = await getChartRevenue(params.storeId)
 
     return (
         <div className="flex-col">
@@ -63,6 +67,14 @@ const DashBooardPage:React.FC<Props> = async ( {params}:Props)=>{
                         </CardContent>
                     </Card>
                 </div>
+                <Card className="col-span-4">
+                    <CardHeader>
+                        <CardTitle>Overview</CardTitle>
+                    </CardHeader>
+                    <CardContent className="pl-2">
+                        <Overview data={chartData}/>
+                    </CardContent>
+                </Card>
             </div>
         </div>
     )
