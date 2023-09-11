@@ -10,7 +10,7 @@ export default function SetupPage() {
 
   useEffect(()=>{
     if(!isOpen) onOpen()
-  },[])
+  },[isOpen,onOpen])
   
   return (
     <div className='p-4'>
